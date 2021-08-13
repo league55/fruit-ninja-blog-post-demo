@@ -1,5 +1,6 @@
 import {app} from "./app";
-import {initRope, mouseTick} from "./trail";
+import {initRope, mouseTick, rope} from "./trail";
+import {fpsControl} from "./camera_input";
 
 initRope(app);
 

@@ -1,9 +1,14 @@
 import * as PIXI from 'pixi.js'
+export const shouldUseCamera = true;
+export const extraDebug = true;
+
+export const APP_WIDTH = 640;
+export const APP_HEIGHT = 480;
 
 export const app = new PIXI.Application({
-    width: 720,
-    height: 1280,
-    backgroundColor: 0x1099bb,
-    view: document.querySelector('#scene'),
-    resolution: window.devicePixelRatio || 1
+    width: APP_WIDTH,
+    height: APP_HEIGHT,
+    transparent: true,
+    view: document.querySelector('#scene')
 });
+export default app;
