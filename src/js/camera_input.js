@@ -3,7 +3,6 @@ import {Hands} from '@mediapipe/hands/hands';
 import {Camera} from '@mediapipe/camera_utils/camera_utils';
 import {ControlPanel, FPS} from '@mediapipe/control_utils/control_utils';
 import app, {APP_HEIGHT, APP_WIDTH, extraDebug} from "./app";
-//import stateManager, {State} from "./stateManager";
 
 // grabs camera input
 const videoElement = document.getElementsByClassName('input_video')[0];
