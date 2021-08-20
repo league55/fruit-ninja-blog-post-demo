@@ -1,5 +1,7 @@
 // Get the texture for rope.
 import * as PIXI from 'pixi.js'
+import {shouldUseCamera} from "./app";
+import {getLastFingerPosition} from "./camera_input";
 
 const trailTexture = PIXI.Texture.from('/assets/trail.png');
 const historyX = [];
@@ -30,9 +32,14 @@ export function initRope(app) {
     app.stage.addChild(rope);
 }
 
+function getPosition(app) {
+    const mouse = shouldUseCamera ? getLastFingerPosition() : app.renderer.plugins.interaction.mouse.global;
+    //const mouse = app.renderer.plugins.interaction.mouse.global;
+    return {x: mouse.x, y: mouse.y}
+}
 
 export function mouseTick(app) {
-    const mouseposition = app.renderer.plugins.interaction.mouse.global;
+    const mouseposition = getPosition(app);
 
     // Update the mouse values to history
     historyX.pop();

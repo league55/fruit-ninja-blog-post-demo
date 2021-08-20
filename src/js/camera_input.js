@@ -15,12 +15,16 @@ const canvasCtx = canvasElement.getContext('2d');
 
 export const fpsControl = new FPS();
 
-
+const FIRST_HAND = 0;
+const POINTING_FINGER_TIP = 8;
 let position = {x: 0, y: 0};
+export const getLastFingerPosition = () => {
+    return position;
+}
 
 const setPosition = (results) => {
     if(results && results.multiHandLandmarks) {
-        let finger = results.multiHandLandmarks[0][8];
+        let finger = results.multiHandLandmarks[FIRST_HAND][POINTING_FINGER_TIP];
         position = {x: finger.x * app.screen.width, y: finger.y * app.screen.height};
     }
 }
